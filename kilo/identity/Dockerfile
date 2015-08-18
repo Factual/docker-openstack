@@ -3,6 +3,6 @@ MAINTAINER Maxime DEVALLAND <maxime@factual.com>
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5EDB1B62EC4926EA
 RUN echo "deb http://ubuntu-cloud.archive.canonical.com/ubuntu trusty-updates/kilo main" > /etc/apt/sources.list.d/cloudarchive-kilo.list
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes ntp ubuntu-cloud-keyring rabbitmq-server && rm -r /var/lib/apt/lists/*
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes ntp ubuntu-cloud-keyring keystone && rm -r /var/lib/apt/lists/*
 
-CMD ['/usr/sbin/rabbitmq-server']
+CMD ['/usr/bin/keystone-all']
