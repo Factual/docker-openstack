@@ -8,9 +8,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --force-
 RUN sed -i -r 's/bind-address.*$/bind-address = 0.0.0.0/' /etc/mysql/my.cnf
 RUN rm -rf /var/lib/mysql 
 
-ADD create_mariadb_admin_user.sh /create_mariadb_admin_user.sh
-ADD run.sh /run.sh
-RUN chmod 775 /*.sh
+
+RUN mkdir -p /etc/my_init.d/ /etc/service/mariadb
+ADD create_mariadb_admin_user.sh /etc/my_init.d/00_create_mariadb_admin_user.sh
+ADD mariadb.sh /etc/service/mariadb/run
 
 EXPOSE 3306
-CMD ["/run.sh"]

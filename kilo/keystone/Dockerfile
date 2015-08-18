@@ -8,3 +8,5 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --force-
 RUN mkdir -p /etc/my_init.d/ /etc/service/keystone
 ADD init.sh /etc/my_init.d/00_init.sh
 ADD keystone.sh /etc/service/keystone/run
+
+EXPOSE 5000 35357

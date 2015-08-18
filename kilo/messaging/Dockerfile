@@ -5,4 +5,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5EDB1B62EC4926EA
 RUN echo "deb http://ubuntu-cloud.archive.canonical.com/ubuntu trusty-updates/kilo main" > /etc/apt/sources.list.d/cloudarchive-kilo.list
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes ntp ubuntu-cloud-keyring rabbitmq-server && rm -r /var/lib/apt/lists/*
 
-CMD ['/usr/sbin/rabbitmq-server']
+RUN mkdir -p /etc/my_init.d/ /etc/service/rabbitmq
+ADD rabbitmq.sh /etc/service/rabbitmq/run
+
+EXPOSE 4369 25672
