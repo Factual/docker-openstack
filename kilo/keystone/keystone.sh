@@ -1,3 +1,3 @@
 #!/bin/bash
-
-/usr/bin/keystone-all
+source /etc/apache2/envvars
+/usr/sbin/apache2
