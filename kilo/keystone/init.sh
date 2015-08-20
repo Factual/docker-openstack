@@ -2,7 +2,7 @@
 
 OS_KEYSTONE_ADMIN_TOKEN=${OS_KEYSTONE_ADMIN_TOKEN:-ADMIN}
 OS_KEYSTONE_DB_PASSWORD=${OS_KEYSTONE_DB_PASSWORD:-keystone}
-OS_DB_URL={$OS_DB_URL:-controller}
+OS_DB_URL=${OS_DB_URL:-controller}
 
 sed -i "s/#admin_token.*/admin_token=$OS_KEYSTONE_ADMIN_TOKEN/g" /etc/keystone/keystone.conf
 sed -i "s|connection = sqlite.*|mysql://keystone:$OS_KEYSTONE_DB_PASSWORD@$OS_DB_URL/keystone|g" /etc/keystone/keystone.conf
