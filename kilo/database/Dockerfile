@@ -10,7 +10,7 @@ RUN rm -rf /var/lib/mysql
 
 
 RUN mkdir -p /etc/my_init.d/ /etc/service/mariadb
-ADD create_mariadb_admin_user.sh /etc/my_init.d/00_create_mariadb_admin_user.sh
+ADD create_mariadb_admin_user.sh /create_mariadb_admin_user.sh
 ADD mariadb.sh /etc/service/mariadb/run
 
 EXPOSE 3306

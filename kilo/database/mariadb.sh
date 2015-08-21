@@ -10,7 +10,7 @@ if [[ ! -d $VOLUME_HOME/mysql ]]; then
     echo "=> Installing MariaDB ..."
     mysql_install_db > /dev/null 2>&1
     echo "=> Done!"  
-    /etc/my_init.d/00_create_mariadb_admin_user.sh
+    /create_mariadb_admin_user.sh
 else
     echo "=> Using an existing volume of MariaDB"
 fi
