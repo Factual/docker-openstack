@@ -1,6 +1,6 @@
 #!/bin/bash
-service glance-registry stop
-service glance-api stop
+#service glance-registry stop
+#service glance-api stop
 
 OS_GLANCE_DB_PASSWORD=${OS_GLANCE_DB_PASSWORD:-glance}
 OS_GLANCE_PASSWORD=${OS_GLANCE_PASSWORD:-glance}
@@ -40,3 +40,5 @@ sed -i "/DEFAULT]/a notification_driver = noop" /etc/glance/glance-registry.conf
 
 # Removing default SQLite DB
 rm -f /var/lib/glance/glance.sqlite
+
+glance-manage db_sync
