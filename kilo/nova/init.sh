@@ -16,10 +16,10 @@ echo "
 [database]
 connection = mysql://nova:$OS_NOVA_DB_PASSWORD@$OS_DB_URL/nova" >> /etc/nova/nova.conf
 sed -i "0,/DEFAULT]/a \
-rpc_backend = rabbit\n
+rpc_backend = rabbit\n\
 auth_strategy = keystone" /etc/nova/nova.conf
 
-echo "[keystone_authtoken]
+echo -e "[keystone_authtoken]
 auth_uri = http://$OS_URL:5000\n\
 auth_url = http://$OS_URL:35357\n\
 auth_plugin = password\n\
@@ -30,7 +30,7 @@ username = nova\n\
 password = $OS_NOVA_PASSWORD" >> /etc/nova/nova.conf
 
 echo "[oslo_messaging_rabbit]
-rabbit_host = $OS_URL
+rabbit_host = $OS_MESSAGING_URL
 rabbit_userid = $OS_MESSAGING_USER
 rabbit_password = $OS_MESSAGING_PASSWORD" >> /etc/nova/nova.conf
 
