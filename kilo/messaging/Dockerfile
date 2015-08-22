@@ -9,4 +9,4 @@ RUN mkdir -p /etc/my_init.d/ /etc/service/rabbitmq
 ADD create_user.sh /create_user.sh
 ADD rabbitmq.sh /etc/service/rabbitmq/run
 
-EXPOSE 4369 25672
+EXPOSE 5672
