@@ -6,7 +6,7 @@ RUN echo "deb http://ubuntu-cloud.archive.canonical.com/ubuntu trusty-updates/ki
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes ntp ubuntu-cloud-keyring rabbitmq-server && rm -r /var/lib/apt/lists/*
 
 RUN mkdir -p /etc/my_init.d/ /etc/service/rabbitmq
-ADD create_user.sh /create_user.sh
+ADD create_user.sh /etc/my_init.d/z_create_user.sh
 ADD rabbitmq.sh /etc/service/rabbitmq/run
 
 EXPOSE 5672
