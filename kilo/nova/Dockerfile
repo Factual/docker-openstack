@@ -10,12 +10,12 @@ RUN chmod 755 /bin/jsawk
 RUN mkdir -p /etc/my_init.d/ /etc/service/nova-api /etc/service/nova-cert /etc/service/nova-consoleauth /etc/service/nova-scheduler /etc/service/nova-conductor /etc/service/nova-novncproxy
 ADD init.sh /etc/my_init.d/00_init.sh
 
-#ADD nova-api.sh /etc/service/nova-api/run
-#ADD nova-cert.sh /etc/service/nova-cert/run
-#ADD nova-consoleauth.sh /etc/service/nova-consoleauth/run
-#ADD nova-scheduler.sh /etc/service/nova-scheduler/run
-#ADD nova-conductor.sh /etc/service/nova-conductor/run
-#ADD nova-novncproxy.sh /etc/service/nova-novncproxy/run
+ADD nova-api.sh /etc/service/nova-api/run
+ADD nova-cert.sh /etc/service/nova-cert/run
+ADD nova-consoleauth.sh /etc/service/nova-consoleauth/run
+ADD nova-scheduler.sh /etc/service/nova-scheduler/run
+ADD nova-conductor.sh /etc/service/nova-conductor/run
+ADD nova-novncproxy.sh /etc/service/nova-novncproxy/run
 
 EXPOSE 8774
 
